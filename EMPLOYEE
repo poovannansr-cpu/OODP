@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+class Employee
+{
+protected:
+     int empid;
+     string empname;
+public:
+    void getEmployee()
+    {
+        cout<<"enter employee id:"<<endl;
+        cin>>empid;
+        cout<<"enter the name:";
+        cin>>empname;
+    }
+    void displayEmployee()
+    {
+        cout<<"empid:"<<empid<<endl;
+        cout<<"empname:"<<empname<<endl;
+    }
+};
+class Manager:public Employee
+{
+private:
+    string dept;
+    float salary;
+public:
+    void getManager()
+    {
+        getEmployee();
+        cout<<"enter department:"<<endl;
+        cin>>dept;
+        cout<<"enter the salary:"<<endl;
+        cin>>salary;
+    }
+    void displayManager()
+    {
+        displayEmployee();
+        cout<<"department:"<<dept<<endl;
+        cout<<"salary:"<<salary;
+    }
+};
+
+int main()
+{
+    Manager m;
+    m.getManager();
+    m.displayManager();
+};
