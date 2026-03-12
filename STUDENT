@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+protected:
+    int roll;
+    string name;
+
+public:
+    void getStudent()
+    {
+        cout<<"Enter roll number: ";
+        cin>>roll;
+
+        cout<<"Enter name: ";
+        cin>>name;
+    }
+
+    void showStudent()
+    {
+        cout<<"Roll number: "<<roll<<endl;
+        cout<<"Name: "<<name<<endl;
+    }
+};
+
+class Result : public Student
+{
+private:
+    int m1, m2, m3;
+    int total;
+    float average;
+
+public:
+    void getMarks()
+    {
+        cout<<"Enter 3 subject marks: ";
+        cin>>m1>>m2>>m3;
+    }
+
+    void calculate()
+    {
+        total = m1 + m2 + m3;
+        average = total / 3.0;
+    }
+
+    void display()
+    {
+        showStudent();
+        cout<<"Total: "<<total<<endl;
+        cout<<"Average: "<<average<<endl;
+    }
+};
+
+int main()
+{
+    Result r;
+
+    r.getStudent();
+    r.getMarks();
+    r.calculate();
+    r.display();
+
+    return 0;
+}
